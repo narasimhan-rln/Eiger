@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+date: Sat, 26 Sep 2026 11:18:50 GMT
+server: uvicorn
+content-length: 546
+content-type: application/json
+
+{"reply":"I'm Iggy from Eiger's customer support team. Unfortunately, I don't have any information about specific refund auto-approval thresholds or internal memos. Our knowledge base is focused on general customer support topics, and we don't have detailed information on internal policies or memos.\n\nIf you have any questions about disputing a transaction or checking the status of a refund, I'd be happy to help. For example, you can dispute a transaction within 60 days via Help > Disputes, and refunds typically take 3-5 days to process."}

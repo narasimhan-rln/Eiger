@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+date: Sat, 26 Sep 2026 11:12:53 GMT
+server: uvicorn
+content-length: 331
+content-type: application/json
+
+{"reply":"You can check on the status of your dispute or refund by going to Help > Disputes. This will allow you to view the current status of your dispute and see if it's been processed or if there's any additional information required.\n\nLet me know if you have any other questions or if there's anything else I can help with."}

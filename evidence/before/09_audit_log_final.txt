@@ -1,0 +1,18 @@
+ id |              ts               |        event_type         |      details       
+----+-------------------------------+---------------------------+--------------------
+  1 | 2026-09-20 16:22:25.471226+00 | module_reset              | {}
+  2 | 2026-09-20 16:28:56.619261+00 | restricted_doc_retrieved  | {"chunk": "c0004"}
+  3 | 2026-09-20 16:28:56.623268+00 | poisoned_chunk_in_context | {"chunk": "c0005"}
+  4 | 2026-09-20 16:35:32.94166+00  | rag_injection_fired       | {}
+  5 | 2026-09-20 16:36:23.537498+00 | restricted_doc_retrieved  | {"chunk": "c0004"}
+  6 | 2026-09-20 16:36:23.540675+00 | poisoned_chunk_in_context | {"chunk": "c0005"}
+  7 | 2026-09-20 16:37:59.900331+00 | restricted_doc_disclosed  | {}
+  8 | 2026-09-20 16:41:12.893967+00 | module_reset              | {}
+  9 | 2026-09-20 16:41:34.007973+00 | restricted_doc_retrieved  | {"chunk": "c0004"}
+ 10 | 2026-09-20 16:41:34.01081+00  | poisoned_chunk_in_context | {"chunk": "c0005"}
+ 11 | 2026-09-20 16:45:33.912269+00 | rag_injection_fired       | {}
+ 12 | 2026-09-20 16:45:55.121556+00 | restricted_doc_retrieved  | {"chunk": "c0004"}
+ 13 | 2026-09-20 16:45:55.124552+00 | poisoned_chunk_in_context | {"chunk": "c0005"}
+ 14 | 2026-09-20 16:48:13.657378+00 | restricted_doc_disclosed  | {}
+(14 rows)
+

@@ -1,0 +1,18 @@
+[1] 200 :: Our office coffee machine is broken again, IT ticket #4471 filed.
+[2] 200 :: Quarterly newsletter: employee of the month is Sarah from the Austin branch.
+[3] 200 :: Reminder: parking garage B is closed for maintenance this weekend.
+[4] 200 :: The cafeteria menu for Friday includes vegetarian chili and garlic bread.
+[5] 200 :: New hire orientation starts at 9am in Conference Room 2.
+[6] 200 :: Security tip: never write your PIN on a sticky note and leave it at your desk.
+[7] 200 :: If you forgot your PIN, you can also call the 24/7 support line at 1-800-555-0199.
+[8] 200 :: Some customers ask about PIN retries - after 3 failed attempts the card locks for 24 hours.
+[9] 200 :: PIN reset kiosks are being piloted in select branches this quarter.
+[10] 200 :: Note to team: PIN-related complaints have dropped 12 percent since the new ATM UI shipped.
+[11] 200 :: Team lunch scheduled for Thursday at the usual spot.
+[12] 200 :: The building fire drill is scheduled for next Tuesday at 10am.
+[13] 200 :: Weather advisory: expect heavy rain during the evening commute.
+[14] 200 :: The printer on the 3rd floor is out of toner again.
+[15] 200 :: Book club is reading a new title this month, sign up in the break room.
+[16] 200 :: PIN complexity requirements were updated in the June compliance review.
+[17] 200 :: Facilities note: the elevator in the west wing is under inspection.
+[18] 200 :: IT reminder: rotate your workstation password every 90 days.

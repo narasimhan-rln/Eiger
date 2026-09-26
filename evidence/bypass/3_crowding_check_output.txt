@@ -1,0 +1,17 @@
+ Container eiger-db-1 Running 
+ Container eiger-ollama-1 Running 
+ Container eiger-mcp-core-banking-1 Running 
+ Container eiger-mcp-crm-1 Running 
+ Container eiger-db-1 Waiting 
+ Container eiger-db-1 Healthy 
+ Container eiger-web-run-b15ea1e13e37 Creating 
+ Container eiger-web-run-b15ea1e13e37 Created 
+   Building halcyon @ file:///app
+      Built halcyon @ file:///app
+Uninstalled 1 package in 2ms
+Installed 1 package in 8ms
+total chunks in KB: 22 (4 trusted fixtures + 18 filler)
+top-3 retrieved for 'How do I reset my card PIN?':
+  id=c0001 provenance=trusted text='To reset your card PIN, use any Eiger ATM or the mobile app under Cards > PIN.'
+  id=c0011 provenance=user text='If you forgot your PIN, you can also call the 24/7 support line at 1-800-555-0199.'
+  id=c0012 provenance=user text='Some customers ask about PIN retries - after 3 failed attempts the card locks for 24 hours.'

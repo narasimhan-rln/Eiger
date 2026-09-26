@@ -1,0 +1,16 @@
+== docker compose ps ==
+NAME                       IMAGE                    COMMAND                  SERVICE            CREATED          STATUS                    PORTS
+eiger-db-1                 postgres:16              "docker-entrypoint.s…"   db                 19 minutes ago   Up 19 minutes (healthy)   5432/tcp
+eiger-mcp-core-banking-1   eiger-mcp-core-banking   "uv run uvicorn halc…"   mcp-core-banking   19 minutes ago   Up 19 minutes             127.0.0.1:9001->9001/tcp
+eiger-mcp-crm-1            eiger-mcp-crm            "uv run uvicorn halc…"   mcp-crm            19 minutes ago   Up 19 minutes             127.0.0.1:9002->9002/tcp
+eiger-ollama-1             ollama/ollama:latest     "/bin/ollama serve"      ollama             19 minutes ago   Up 19 minutes             11434/tcp
+eiger-web-1                eiger-web                "uv run uvicorn halc…"   web                19 minutes ago   Up 19 minutes             127.0.0.1:8000->8000/tcp
+
+== GET /health ==
+HTTP/1.1 200 OK
+date: Sun, 20 Sep 2026 16:41:07 GMT
+server: uvicorn
+content-length: 78
+content-type: application/json
+
+{"status":"ok","mode":"vulnerable","ollama":"up","db":"up","mcp":"in-process"}

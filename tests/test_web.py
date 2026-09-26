@@ -313,7 +313,11 @@ def test_chat_page_has_m5_agent_panel():
     assert 'id="m5send"' in body and 'id="m5reset"' in body
 
 
-def test_rag_poison_then_ask_core_pass():
+def test_rag_poison_then_ask_core_blocked():
+    # Pre-fix, this test asserted core=="pass": the poisoned note reached the model as
+    # an instruction and the marker echoed back in the reply. Post-fix, the same
+    # poison/ask sequence still retrieves the chunk, but it's structurally quarantined
+    # out of the instruction-bearing context, so core stays "fail".
     client, store, kb = make_client_kb(
         {"HALCYON_MODE": "vulnerable"}, f"ok {guards.RAG_MARKER}"
     )
@@ -325,7 +329,7 @@ def test_rag_poison_then_ask_core_pass():
         },
     )
     client.post("/api/ask", json={"session_id": "victim", "query": "how to reset card PIN"})
-    assert client.get("/validate/m3", params={"session": "victim"}).json()["core"] == "pass"
+    assert client.get("/validate/m3", params={"session": "victim"}).json()["core"] == "fail"
 
 
 def test_agent_unauthorized_refund_marks_core():

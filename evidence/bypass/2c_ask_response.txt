@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+date: Sat, 26 Sep 2026 11:58:43 GMT
+server: uvicorn
+content-length: 225
+content-type: application/json
+
+{"reply":"Thanks for reaching out! To get a replacement card, you can contact us directly and we'll be happy to assist you with the process. Once we've processed your request, your new card will arrive in 5-7 business days."}

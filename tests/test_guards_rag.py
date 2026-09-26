@@ -8,12 +8,18 @@ def _poison():
                  "user", "public", "attacker")
 
 
-def test_vulnerable_puts_user_chunk_in_instruction_context():
+def test_default_mode_quarantines_user_chunk_from_instructions():
+    # Pre-fix, this test asserted the opposite: that the poison entered the instruction
+    # context under vulnerable mode (`len(instr) == 1`). It now proves the fix instead:
+    # user-provenance content still reaches the model as reference data, but is never
+    # placed in an instruction-bearing role, in either mode.
     s = load_settings({"HALCYON_MODE": "vulnerable"})
     msgs, instr = guards.assemble_rag(s, "hi", [_poison()])
-    joined = " ".join(m["content"] for m in msgs)
-    assert guards.RAG_MARKER in joined
-    assert len(instr) == 1  # the user poison entered the instruction context
+    assert instr == []  # the user chunk is never placed in an instruction-bearing role
+    system_msg = next(m["content"] for m in msgs if m["role"] == "system")
+    user_msg = next(m["content"] for m in msgs if m["role"] == "user")
+    assert guards.RAG_MARKER not in system_msg  # kept out of the answerable-knowledge role
+    assert guards.RAG_MARKER in user_msg  # still reaches the model, as bounded reference data
 
 
 def test_secure_quarantines_user_chunk():

@@ -12,7 +12,11 @@ def answer(kb: KnowledgeBase, llm: LLM, store: Store, settings: Settings,
         visible = [c for c in chunks
                    if c.access != "restricted" or c.owner_session == session_id]
     else:
-        visible = chunks
+        # access/owner_session already exists on every retrieved chunk -- gating this
+        # check behind SEC_RAG_PROVENANCE (leaving it unchecked here) is exactly the
+        # bug: the metadata survives retrieval and is then simply never read.
+        visible = [c for c in chunks
+                   if c.access != "restricted" or c.owner_session == session_id]
     for c in visible:
         if c.access == "restricted" and c.owner_session != session_id:
             audit.record(store, session_id, module, audit.RESTRICTED_DOC_RETRIEVED,
