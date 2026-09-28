@@ -30,7 +30,20 @@ class ChromaKB:
         return Chunk(chunk_id, text, provenance, access, owner_session)
 
     def retrieve(self, query: str, session_id: str, k: int = 3) -> list[Chunk]:
-        results = self._collection.query(query_texts=[query], n_results=k)
+        # Database-enforced partition filtering at the vector engine level:
+        # Excludes restricted chunks that do not belong to the active session_id directly in ChromaDB.
+        where_filter = {
+            "$or": [
+                {"access": "public"},
+                {"owner_session": session_id}
+            ]
+        } if session_id else None
+
+        kwargs = {"query_texts": [query], "n_results": k}
+        if where_filter:
+            kwargs["where"] = where_filter
+
+        results = self._collection.query(**kwargs)
         ids = results["ids"][0] if results["ids"] else []
         documents = results["documents"][0] if results["documents"] else []
         metadatas = results["metadatas"][0] if results["metadatas"] else []

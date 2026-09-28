@@ -368,6 +368,13 @@ def create_app(
 
     @app.post("/api/kb")
     def add_kb(body: KbIn) -> dict:
+        eff = effective_settings(settings, sess, body.session_id, "m3")
+        # Ingestion Content Hygiene: Screen incoming text before indexing into Vector DB
+        if eff.sec_rag_provenance and guards._looks_like_injection(body.text):
+            audit.record(
+                store, body.session_id, "m3", audit.INGESTION_INJECTION_FLAGGED,
+                body.session_id, {"text": body.text}
+            )
         kb = kb_for(body.session_id)
         kb.add(body.text, "user", owner_session=body.session_id)
         return {"status": "ok"}
